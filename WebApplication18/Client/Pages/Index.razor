@@ -1,0 +1,68 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<input type="text" placeholder="Search Name" @bind-value="name" />
+<input type="text" placeholder="Search Name" @bind-value="city" />
+<button @onclick="Search">Search Here</button>
+
+@foreach (var i in d)
+{
+    <h1>Name is : <b>@i.Name</b><b>City is : @i.City</b></h1>
+   
+}
+
+
+@code
+{
+    string name = "";
+    string city = "";
+    List<Myclass> d;
+    private void Search()
+    {
+        d = d.Where(x => x.Name.Contains(name)).ToList();
+        d = d.Where(x => x.City.Contains(city)).ToList();
+    }
+    protected override void OnInitialized()
+    {
+        d = new List<Myclass>()
+        {
+
+            new Myclass(){Name="AMit", City="Delhi"},
+                new Myclass(){Name="Sumit", City="Noida"},
+                 new Myclass(){Name="ravi", City="Delhi"},
+                  new Myclass(){Name="Subham", City="Noida"},
+                   new Myclass(){Name="Rani", City="Noida"},
+                   new Myclass(){Name="AMit", City="Delhi"},
+                new Myclass(){Name="Sumit", City="Noida"},
+                 new Myclass(){Name="ravi", City="Delhi"},
+                  new Myclass(){Name="Subham", City="Noida"},
+                   new Myclass(){Name="Rani", City="Delhi"},
+                   new Myclass(){Name="AMit", City="Noida"},
+                new Myclass(){Name="Sumit", City="Noida"},
+                 new Myclass(){Name="ravi", City="Delhi"},
+                  new Myclass(){Name="Subham", City="Noida"},
+                   new Myclass(){Name="Rani", City="Noida"},
+                   new Myclass(){Name="AMit", City="Noida"},
+                new Myclass(){Name="Sumit", City="Delhi"},
+                 new Myclass(){Name="ravi", City="Noida"},
+                  new Myclass(){Name="Subham", City="Noida"},
+                   new Myclass(){Name="Rani", City="Noida"},
+                   new Myclass(){Name="AMit", City="Noida"},
+                new Myclass(){Name="Sumit", City="Delhi"},
+                 new Myclass(){Name="ravi", City="Noida"},
+                  new Myclass(){Name="Subham", City="Noida"},
+                   new Myclass(){Name="Rani", City="Noida"},
+
+                   new Myclass(){Name="AMit", City="Delhi"},
+                new Myclass(){Name="Sumit", City="Noida"},
+                 new Myclass(){Name="ravi", City="Noida"},
+                  new Myclass(){Name="Subham", City="Delhi"},
+                   new Myclass(){Name="Rani", City="Noida"}
+            };
+    }
+}
